@@ -100,4 +100,62 @@
             font-weight: 700; 
             font-size: 0.9em;
             text-transform: uppercase;
-            letter-spacing: 0.1
+            letter-spacing: 0.1em;
+            color: #222; 
+            border-top: 2px solid #f0f0f0; 
+            padding-top: 20px; 
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>carmina poetae quinquagenarii</h2>
+    <p class="instrucciones">— ingresá un número (1-50) —</p>
+    
+    <input type="number" id="numeroPoema" min="1" max="50" placeholder="0">
+    <button onclick="buscarPoema()">Descubrir</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+    const biblioteca = {
+        1: {
+            titulo: "Falsamente tuyo",
+            texto: "Querida, encuentra lo que amas y deja que te mate. \n\nDeja que consuma de ti tu todo. Deja que se adhiera a tu espalda y te agobie hasta la eventual nada. \n\nDeja que te mate, y deja que devore tus restos. Porque de todas las cosas que te matarán, lenta o rápidamente, es mucho mejor ser asesinado por un amante.",
+            autor: "Charles Bukowski"
+        },
+        2: {
+            titulo: "Harlem",
+            texto: "¿Qué pasa con un sueño postergado?\n\n¿Se seca\nal sol como una uva al sol?\n¿O se abre como una llaga--\ny supura?\n¿Huele como carne podrida?\n¿O se endurece y se endulza--\ncomo el almíbar?\n\nTal vez se hunde\ncomo una carga pesada\n\n¿O quizás sólo estalla?",
+            autor: "Langston Hughes"
+        },
+        15: {
+            titulo: "El Quinceavo Verso",
+            texto: "No busques rimas donde hay verdades,\nni busques pausas donde hay latidos.\nAquí se escribe con el alma desnuda.",
+            autor: "Nombre del Autor"
+        }
+    };
+
+    function buscarPoema() {
+        const num = document.getElementById('numeroPoema').value;
+        const visor = document.getElementById('resultado');
+        const poema = biblioteca[num];
+        
+        if (poema) {
+            visor.innerHTML = `
+                <div class="titulo-poema">${poema.titulo}</div>
+                <div class="cuerpo-poema">${poema.texto}</div>
+                <div class="autor-poema">— ${poema.autor}</div>
+            `;
+        } else {
+            visor.innerHTML = "<p style='color:#a00; text-align:center;'>Ese número aún guarda silencio.</p>";
+        }
+    }
+</script>
+
+</body>
+</html>
