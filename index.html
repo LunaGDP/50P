@@ -3,59 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de Poemas</title>
+    <title>carmina poetae quinquagenarii</title>
     <style>
-        body { font-family: 'Georgia', serif; background-color: #f4f1ea; display: flex; justify-content: center; padding: 50px; }
-        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 500px; width: 100%; text-align: center; }
-        input { padding: 10px; width: 60px; font-size: 18px; border: 1px solid #ccc; border-radius: 4px; }
-        button { padding: 10px 20px; font-size: 18px; background-color: #5a7d7c; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background-color: #456261; }
-        #resultado { margin-top: 30px; text-align: left; line-height: 1.6; font-style: italic; white-space: pre-line; }
-        .autor {
-    margin-top: 15px;
-    text-align: right;
-    font-weight: bold;
-    font-style: normal;
-    color: #333;
-}
+        /* Estilos para que se vea elegante y minimalista */
+        body { font-family: 'Georgia', serif; background-color: #fdfcf9; display: flex; justify-content: center; padding: 40px 20px; color: #2c2c2c; }
+        .container { background: white; padding: 40px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; width: 100%; text-align: center; border: 1px solid #eee; }
+        
+        h2 { font-style: italic; font-weight: normal; color: #555; margin-bottom: 5px; text-transform: lowercase; }
+        .instrucciones { font-size: 0.9em; color: #888; margin-bottom: 30px; }
+        
+        input { padding: 10px; width: 70px; font-size: 18px; border: 1px solid #ddd; border-radius: 0; text-align: center; outline: none; }
+        button { padding: 11px 25px; font-size: 16px; background-color: #2c2c2c; color: white; border: none; cursor: pointer; transition: 0.3s; }
+        button:hover { background-color: #555; }
+
+        /* Contenedor del poema */
+        #resultado { margin-top: 50px; text-align: left; animation: fadeIn 0.8s; }
+        .titulo-poema { font-size: 1.5em; font-weight: bold; margin-bottom: 20px; color: #1a1a1a; text-align: center; }
+        .cuerpo-poema { line-height: 1.8; white-space: pre-line; font-size: 1.1em; margin-bottom: 25px; }
+        .autor-poema { text-align: right; font-style: italic; color: #666; border-top: 1px solid #eee; pt: 15px; padding-top: 15px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h2>carmina poetae quinquagenarii</h2>
-    <p>Ingresá un número (1-50)</p>
+    <p class="instrucciones">— ingresá un número (1-50) —</p>
     
     <input type="number" id="numeroPoema" min="1" max="50" placeholder="0">
-    <button onclick="buscarPoema()">Leer</button>
+    <button onclick="buscarPoema()">Descubrir</button>
 
     <div id="resultado">
         </div>
 </div>
 
 <script>
-    // Este es tu "archivo" de poemas
-    const poemas = {
-        1: "Querida, encuentra lo que amas y deja que te mate. Deja que consuma de ti tu todo. Deja que se adhiera a tu espalda y te agobie hasta la eventual nada. Deja que te mate, y deja que devore tus restos. Porque de todas las cosas que te matarán, lenta o rápidamente, es mucho mejor ser asesinado por un amante. ",
-        2: "Caminante, no hay camino, \nse hace camino al andar. \nAl andar se hace el camino...",
-        15: "Este es el poema número 15, \nllegaste justo a tiempo \npara ver el sol caer.",
-        // Puedes seguir agregando hasta el 50
+    // BASE DE DATOS DE TUS POEMAS
+    // Estructura: número: { titulo: "...", texto: "...", autor: "..." }
+    const biblioteca = {
+        1: {
+            titulo: "Primer Alba",
+            texto: "La luz se filtra por la persiana,\ndibujando mapas de plata en el suelo.\nEs el inicio de todo.",
+            autor: "Nombre del Autor"
+        },
+        15: {
+            titulo: "El Quinceavo Verso",
+            texto: "No busques rimas donde hay verdades,\nni busques pausas donde hay latidos.\nAquí se escribe con el alma desnuda.",
+            autor: "Nombre del Autor"
+        },
+        // Sigue agregando hasta el 50 siguiendo este formato exacto
     };
 
     function buscarPoema() {
         const num = document.getElementById('numeroPoema').value;
         const visor = document.getElementById('resultado');
+        const poema = biblioteca[num];
         
-        if (poemas[num]) {
-            visor.innerHTML = `<h3>Poema Nro. ${num}</h3> ${poemas[num]}`;
+        if (poema) {
+            visor.innerHTML = `
+                <div class="titulo-poema">${poema.titulo}</div>
+                <div class="cuerpo-poema">${poema.texto}</div>
+                <div class="autor-poema">— ${poema.autor}</div>
+            `;
         } else {
-            visor.innerHTML = "<p style='color:red;'>Aún no hay un poema para este número o está fuera de rango.</p>";
+            visor.innerHTML = "<p style='color:#a00; text-align:center;'>Ese número aún guarda silencio.</p>";
         }
     }
 </script>
 
 </body>
 </html>
-
-
-
