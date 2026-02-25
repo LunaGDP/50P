@@ -28,87 +28,66 @@
         }
 
         h2 { 
-            font-weight: 700; 
-            font-size: 1.2em; 
-            color: #1a1a1a; 
-            margin-bottom: 5px; 
-            text-transform: lowercase; 
-            letter-spacing: 0.05em;
+    font-weight: 700; 
+    font-size: 1.1em; 
+    color: #999; /* Este es el color gris */
+    margin-bottom: 5px; 
+    text-transform: lowercase; 
+    letter-spacing: 0.2em; 
+    transition: color 0.3s; /* Por si quieres que cambie al pasar el mouse */
         }
 
-        .instrucciones { 
-            font-size: 0.85em; 
-            color: #999; 
-            margin-bottom: 35px; 
-            font-weight: 300;
-        }
+       .instrucciones { 
+        font-size: 0.75em; 
+        color: #ccc; 
+        margin-bottom: 35px; 
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
 
-        input { 
-            padding: 12px; 
-            width: 80px; 
-            font-family: 'Montserrat', sans-serif;
-            font-size: 18px; 
-            border: 2px solid #eee; 
-            border-radius: 8px; 
-            text-align: center; 
-            outline: none; 
-            transition: border 0.3s;
-        }
+    /* 2) Ajustes del poema: tamaño igual a carmina y alineaciones invertidas */
+    
+    #resultado { 
+        margin-top: 60px; 
+        animation: fadeIn 1s; 
+    }
 
-        input:focus { border-color: #333; }
+    .titulo-poema { 
+        font-size: 1.1em; /* Mismo tamaño que el h2 (carmina) */
+        font-weight: 700; 
+        margin-bottom: 25px; 
+        color: #1a1a1a; 
+        text-align: right; /* Justificado a la derecha */
+        letter-spacing: 0.05em;
+    }
 
-        button { 
-            padding: 13px 28px; 
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px; 
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            background-color: #1a1a1a; 
-            color: white; 
-            border: none; 
-            border-radius: 8px;
-            margin-left: 10px;
-            cursor: pointer; 
-            transition: 0.3s; 
-        }
+    .cuerpo-poema { 
+        line-height: 1.8; 
+        white-space: pre-line; 
+        font-size: 1.1em; /* Mismo tamaño que el h2 (carmina) */
+        font-weight: 300; 
+        margin-bottom: 40px; 
+        color: #333;
+        text-align: right; /* Justificado a la derecha */
+    }
 
-        button:hover { background-color: #444; transform: translateY(-1px); }
+    .autor-poema { 
+        text-align: left; /* Autor justificado a la izquierda */
+        font-weight: 700; 
+        font-size: 0.8em; 
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #000; 
+        border-top: 1px solid #eee; 
+        padding-top: 20px; 
+        display: block; /* Asegura que ocupe su propia línea */
+    }
 
-        #resultado { margin-top: 60px; text-align: left; animation: fadeIn 1s; }
-        
-        .titulo-poema { 
-            font-size: 1.8em; 
-            font-weight: 700; 
-            margin-bottom: 25px; 
-            color: #000; 
-            text-align: center; 
-            line-height: 1.2;
-        }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
 
-        .cuerpo-poema { 
-            line-height: 1.8; 
-            white-space: pre-line; 
-            font-size: 1.05em; 
-            font-weight: 300; 
-            margin-bottom: 30px; 
-            color: #444;
-        }
-
-        .autor-poema { 
-            text-align: right; 
-            font-weight: 700; 
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #222; 
-            border-top: 2px solid #f0f0f0; 
-            padding-top: 20px; 
-        }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
-</head>
+        </head>
 <body>
 
 <div class="container">
@@ -159,3 +138,4 @@
 
 </body>
 </html>
+
