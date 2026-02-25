@@ -27,67 +27,89 @@
             text-align: center; 
         }
 
+        /* 1) Título principal en gris */
         h2 { 
-    font-weight: 700; 
-    font-size: 1.1em; 
-    color: #999; /* Este es el color gris */
-    margin-bottom: 5px; 
-    text-transform: lowercase; 
-    letter-spacing: 0.2em; 
-    transition: color 0.3s; /* Por si quieres que cambie al pasar el mouse */
+            font-weight: 700; 
+            font-size: 1.1em; 
+            color: #999; 
+            margin-bottom: 5px; 
+            text-transform: lowercase; 
+            letter-spacing: 0.2em;
         }
 
-       .instrucciones { 
-        font-size: 0.75em; 
-        color: #ccc; 
-        margin-bottom: 35px; 
-        font-weight: 400;
-        text-transform: uppercase;
-        text-align: center;
-    }
+        .instrucciones { 
+            font-size: 0.75em; 
+            color: #ccc; 
+            margin-bottom: 35px; 
+            font-weight: 400;
+            text-transform: uppercase;
+        }
 
-    /* 2) Ajustes del poema: tamaño igual a carmina y alineaciones invertidas */
-    
-    #resultado { 
-        margin-top: 60px; 
-        animation: fadeIn 1s; 
-    }
+        input { 
+            padding: 12px; 
+            width: 80px; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px; 
+            border: 2px solid #eee; 
+            border-radius: 8px; 
+            text-align: center; 
+            outline: none; 
+        }
 
-    .titulo-poema { 
-        font-size: 1.1em; /* Mismo tamaño que el h2 (carmina) */
-        font-weight: 700; 
-        margin-bottom: 25px; 
-        color: #1a1a1a; 
-        text-align: right; /* Justificado a la derecha */
-        letter-spacing: 0.05em;
-    }
+        button { 
+            padding: 13px 28px; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background-color: #1a1a1a; 
+            color: white; 
+            border: none; 
+            border-radius: 8px;
+            margin-left: 10px;
+            cursor: pointer; 
+            transition: 0.3s;
+        }
 
-    .cuerpo-poema { 
-        line-height: 1.8; 
-        white-space: pre-line; 
-        font-size: 1.1em; /* Mismo tamaño que el h2 (carmina) */
-        font-weight: 300; 
-        margin-bottom: 40px; 
-        color: #333;
-        text-align: right; /* Justificado a la derecha */
-    }
+        button:hover { background-color: #444; }
 
-    .autor-poema { 
-        text-align: left; /* Autor justificado a la izquierda */
-        font-weight: 700; 
-        font-size: 0.8em; 
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: #000; 
-        border-top: 1px solid #eee; 
-        padding-top: 20px; 
-        display: block; /* Asegura que ocupe su propia línea */
-    }
+        #resultado { margin-top: 60px; animation: fadeIn 1s; }
+        
+        /* 2) Poema mismo tamaño que carmina y justificado a la izquierda */
+        .titulo-poema { 
+            font-size: 1.1em; 
+            font-weight: 700; 
+            margin-bottom: 25px; 
+            color: #1a1a1a; 
+            text-align: left; 
+        }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-</style>
+        .cuerpo-poema { 
+            line-height: 1.8; 
+            white-space: pre-line; 
+            font-size: 1.1em; 
+            font-weight: 300; 
+            margin-bottom: 40px; 
+            color: #333;
+            text-align: left; 
+        }
 
-        </head>
+        /* 3) Nombre del autor justificado a la derecha y sin raya */
+        .autor-poema { 
+            text-align: right; 
+            font-weight: 700; 
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #000; 
+            border-top: 1px solid #eee; 
+            padding-top: 20px; 
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
 <body>
 
 <div class="container">
@@ -111,12 +133,8 @@
             titulo: "Harlem",
             texto: "¿Qué pasa con un sueño postergado?\n\n¿Se seca\nal sol como una uva al sol?\n¿O se abre como una llaga--\ny supura?\n¿Huele como carne podrida?\n¿O se endurece y se endulza--\ncomo el almíbar?\n\nTal vez se hunde\ncomo una carga pesada\n\n¿O quizás sólo estalla?",
             autor: "Langston Hughes"
-        },
-        15: {
-            titulo: "El Quinceavo Verso",
-            texto: "No busques rimas donde hay verdades,\nni busques pausas donde hay latidos.\nAquí se escribe con el alma desnuda.",
-            autor: "Nombre del Autor"
         }
+        // Puedes seguir agregando aquí...
     };
 
     function buscarPoema() {
@@ -128,7 +146,7 @@
             visor.innerHTML = `
                 <div class="titulo-poema">${poema.titulo}</div>
                 <div class="cuerpo-poema">${poema.texto}</div>
-                <div class="autor-poema">— ${poema.autor}</div>
+                <div class="autor-poema">${poema.autor}</div>
             `;
         } else {
             visor.innerHTML = "<p style='color:#a00; text-align:center;'>Ese número aún guarda silencio.</p>";
@@ -138,4 +156,3 @@
 
 </body>
 </html>
-
